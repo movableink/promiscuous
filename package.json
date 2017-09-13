@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "promises-aplus-tests": "2.0.x",
-    "uglify-js": "2.2.x"
+    "uglify-js": "2.2.x",
+    "bower": "^1.8.0"
   }
 }
