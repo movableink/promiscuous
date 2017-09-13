@@ -76,6 +76,7 @@
 
   // Finalizes the promise by resolving/rejecting it with the transformed value
   function finalize(promise, resolve, reject, value, transform) {
+    CD.suspend();
     setImmediate(function () {
       try {
         // Transform the value through and check whether it's a promise
@@ -90,8 +91,11 @@
         // Take over the promise's state
         else
           transform.call(value, resolve, reject);
+      } catch (error) {
+        reject(error);
+      } finally {
+        CD.capture();
       }
-      catch (error) { reject(error); }
     });
   }
 
