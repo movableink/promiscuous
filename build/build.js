@@ -2,9 +2,7 @@
 var fs = require("fs");
 var UglifyJS = require("uglify-js");
 
-var promiscuous = fs.readFileSync("promiscuous.js", "utf8");
-var cropduster = fs.readFileSync("bower_components/cropduster/lib/cropduster.js", "utf8");
-var full = cropduster + promiscuous;
+var full = fs.readFileSync("promiscuous.js", "utf8");
 var copyright = full.match(/.*\n/)[0];
 var minified = copyright + UglifyJS.minify(full, { fromString: true }).code;
 var browserFull = full.replace("module.exports", "window.Promise")
@@ -13,7 +11,7 @@ var browser = copyright + UglifyJS.minify(browserFull, { fromString: true }).cod
                                   .replace("window.Promise", "Promise");
 
 var path = "dist/";
-if (!fs.existsSync(path))
+if(!fs.existsSync(path))
   fs.mkdirSync(path);
 
 fs.writeFileSync(path + "promiscuous-node.js", minified);

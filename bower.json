@@ -1,6 +1,0 @@
-{
-  "name": "mi-promiscuous",
-  "dependencies": {
-    "cropduster": "^3.3.0"
-  }
-}

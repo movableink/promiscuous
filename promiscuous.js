@@ -1,3 +1,5 @@
+var CD = require('cropduster');
+
 /**@license MIT-promiscuous-©Ruben Verborgh*/
 (function (func, obj) {
   // Type checking utility function
