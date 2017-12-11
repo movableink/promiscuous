@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "promises-aplus-tests": "2.0.x",
+    "uglify-js": "2.2.x",
     "cropduster": "https://github.com/movableink/cropduster#mn/es6-imports"
   }
 }
